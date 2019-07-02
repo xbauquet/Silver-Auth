@@ -16,13 +16,13 @@ public class Application {
             get("/get", (request, response) -> {
                 String headers = request.headers("Authorization");
                 if(headers == null) {
-                    halt(401, "You are not welcome here");
+                    halt(401, "You are not welcome here. (Authorization header is null)");
                 }
                 String[] basics = headers.split(" ")[1].split(":");
                 if("user".equals(basics[0].toLowerCase()) && "password".equals(basics[1].toLowerCase())) {
                     return token;
                 } else {
-                    halt(401, "You are not welcome here");
+                    halt(401, "You are not welcome here. (Bad credentials " + basics[0] + ":" + basics[1] + ")");
                 }
                 return null;
             });
