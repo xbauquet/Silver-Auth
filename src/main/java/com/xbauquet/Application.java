@@ -19,7 +19,11 @@ public class Application {
                     if(headers == null) {
                         halt(401, "You are not welcome here. (Authorization header is null) \n");
                     }
+                    System.out.println("Authorization headers not null: " + headers);
+
                     String basics = new String(Base64.getDecoder().decode(headers.split(" ")[1]));
+
+                    System.out.println("Basics: " + basics);
 
                     if("user:password".equals(basics)) {
                         return token;
