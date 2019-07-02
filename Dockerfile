@@ -18,4 +18,4 @@ RUN ./gradlew clean shadowJar
 
 EXPOSE 4567
 
-CMD java -jar ./build/libs/api-*-all.jar
+CMD java -jar ./build/libs/auth-*-all.jar
